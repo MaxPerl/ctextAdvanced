@@ -922,7 +922,7 @@ proc ctext::highlight {win start end {afterTriggered 0}} {
 	    if { [llength $color] == 1 } { 
 	    	$twin tag configure $tagClass -foreground $color
 		} elseif { [expr [llength $color] % 2] == 0 } {
-			eval $twin tag configure \$tagClass $color
+			$twin tag configure $tagClass {*}$color
 		}
 		
 	} elseif {[info exists highlightCharStartAr($firstOfWord)] == 1} {
@@ -933,7 +933,7 @@ proc ctext::highlight {win start end {afterTriggered 0}} {
 	    if { [llength $color] == 1 } { 
 	    	$twin tag configure $tagClass -foreground $color
 		} elseif { [expr [llength $color] % 2] == 0 } {
-			eval $twin tag configure \$tagClass $color
+			$twin tag configure $tagClass {*}$color
 		}
 	}
 	set si $wordEnd
@@ -960,7 +960,7 @@ proc ctext::highlight {win start end {afterTriggered 0}} {
 	    if { [llength $color] == 1 } { 
 	    	$twin tag configure $tagClass -foreground $color
 		} elseif { [expr [llength $color] % 2] == 0 } {
-			eval $twin tag configure \$tagClass $color
+			$twin tag configure $tagClass {*}$color
 		}
 	    set si $wordEnd
 
@@ -986,7 +986,7 @@ proc ctext::highlight {win start end {afterTriggered 0}} {
 	    if { [llength $color] == 1 } { 
 	    	$twin tag configure $tagClass -foreground $color
 		} elseif { [expr [llength $color] % 2] == 0 } {
-			eval $twin tag configure \$tagClass $color
+			$twin tag configure $tagClass {*}$color
 		}
 	    set si $wordEnd
 
