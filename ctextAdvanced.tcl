@@ -74,17 +74,18 @@ proc ctextAdvanced {win args} {
 	
 	canvas $win.canvas \
         -width 40 \
-        -highlightthickness 0 \
-        -background white
+        -highlightthickness 0
     
-    $win.canvas itemconfigure numbers -font $ar(-font) -foreground $ar(-linemapfg)
+    #$win.canvas itemconfigure numbers -font $ar(-font) -foreground $ar(-linemapfg)
     $win.canvas configure -background $ar(-linemapbg) -takefocus 0 \
     	-relief $ar(-relief)
     
     #escape $win, because it could have a space
     eval text \$win.t -font \$ar(-font) $args
 
-	pack $win.canvas -side left -fill y
+	if {$ar(-linemap) == 1} {
+		pack $win.canvas -side left -fill y
+    }
     pack $win.t -side left -fill both -expand true	
 	
     rename $win __ctextAdvancedJunk$win
